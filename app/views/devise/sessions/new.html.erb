@@ -1,0 +1,49 @@
+<div class="container">
+	<div class="row header">
+		<div class="col-md-12">
+			<h3 class="logo">
+				<a href="/">My Assets</a>
+			</h3>
+			<h4>Sign in to your account.</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="wrapper clearfix">
+				<div class="formy">
+					<div class="row">
+						<div class="col-md-12">
+              <%= simple_form_for resource_name, url: session_path(resource_name), as: 'user_horizontal', html: { class: 'form-vertical' },
+                wrapper: :vertical_form,
+                wrapper_mappings: {
+                  check_boxes: :horizontal_radio_and_checkboxes,
+                } do |f| %>
+                <%= f.error_notification %>
+
+                <%= f.input :email, placeholder: 'Email', required: false %>
+
+                <%= f.input :password, placeholder: 'Password', autocomplete: "off", required: false %>
+
+                <% if devise_mapping.rememberable? -%>
+                  <div class="checkbox">
+                    <input name="user[remember_me]" type="hidden" value="0">
+                    <input id="user_remember_me" name="user[remember_me]" type="checkbox" value="1"> 
+                    <label class="string optional" for="user_remember_me">Remember me</label>
+                  </div>
+                <% end -%>
+                <div class="submit">
+                  <%= f.button :submit, "Sign in to my account", class: "button-clear" %>
+                </div>
+              <% end %>
+
+              
+						</div>
+					</div>						
+				</div>
+			</div>
+			<div class="already-account">
+        <%= render "devise/shared/links" %>
+			</div>
+		</div>
+	</div>
+</div>

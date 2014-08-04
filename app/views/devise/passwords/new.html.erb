@@ -1,0 +1,37 @@
+<div class="container">
+	<div class="row header">
+		<div class="col-md-12">
+			<h3 class="logo">
+				<a href="/">My Assets</a>
+			</h3>
+			<h4>Forgot your password?</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="wrapper clearfix">
+				<div class="formy">
+					<div class="row">
+						<div class="col-md-12">
+              <%= simple_form_for resource_name, url: password_path(resource_name), as: 'user_horizontal', html: { class: 'form-vertical' },
+                wrapper: :vertical_form do |f| %>
+                <%= devise_error_messages! %>
+
+                <%= f.input :email, placeholder: 'Email', required: false, autofocus: true %>
+
+                <div class="submit">
+                  <%= f.button :submit, "Send me reset password instructions", class: "button-clear" %>
+                </div>
+              <% end %>
+
+              
+						</div>
+					</div>						
+				</div>
+			</div>
+			<div class="already-account">
+        <%= render "devise/shared/links" %>
+			</div>
+		</div>
+	</div>
+</div>
