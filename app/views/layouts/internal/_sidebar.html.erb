@@ -13,7 +13,7 @@
 		<div class="user-block clearfix">
       <%= image_tag "user.jpg", alt: "User Avatar" %>
 			<div class="detail">
-				<strong>John Doe</strong><span class="badge badge-danger m-left-xs bounceIn animation-delay4">4</span>
+				<strong><%= current_user.name %></strong>
 				<ul class="list-inline">
 					<li><a href="/profile">Profile</a></li>
 					<li><a href="/inbox" class="no-margin">Inbox</a></li>
@@ -23,7 +23,7 @@
 		<div class="main-menu">
 			<ul>
 				<li class="active">
-					<a href="index.html">
+					<a href="/dashboard">
 						<span class="menu-icon">
 							<i class="fa fa-desktop fa-lg"></i> 
 						</span>
@@ -39,28 +39,13 @@
 							<i class="fa fa-file-text fa-lg"></i> 
 						</span>
 						<span class="text">
-							Assets
+							Items
 						</span>
 						<span class="menu-hover"></span>
 					</a>
 					<ul class="submenu">
-						<li><a href="login.html"><span class="submenu-label">Sign in</span></a></li>
-						<li><a href="register.html"><span class="submenu-label">Sign up</span></a></li>
-						<li><a href="lock_screen.html"><span class="submenu-label">Lock Screen</span></a></li>
-						<li><a href="profile.html"><span class="submenu-label">Profile</span></a></li>
-						<li><a href="blog.html"><span class="submenu-label">Blog</span></a></li>
-						<li><a href="single_post.html"><span class="submenu-label">Single Post</span></a></li>
-						<li><a href="landing.html"><span class="submenu-label">Landing</span></a></li>
-						<li><a href="search_result.html"><span class="submenu-label">Search Result</span></a></li>
-						<li><a href="chat.html"><span class="submenu-label">Chat Room</span></a></li>
-						<li><a href="movie.html"><span class="submenu-label">Movie Gallery</span></a></li>
-						<li><a href="pricing.html"><span class="submenu-label">Pricing</span></a></li>
-						<li><a href="invoice.html"><span class="submenu-label">Invoice</span></a></li>
-						<li><a href="faq.html"><span class="submenu-label">FAQ</span></a></li>
-						<li><a href="contact.html"><span class="submenu-label">Contact</span></a></li>
-						<li><a href="error404.html"><span class="submenu-label">Error404</span></a></li>
-						<li><a href="error500.html"><span class="submenu-label">Error500</span></a></li>
-						<li><a href="blank.html"><span class="submenu-label">Blank</span></a></li>
+						<li><a href="/items"><span class="submenu-label">View Items</span></a></li>
+						<li><a href="/items/new"><span class="submenu-label">New Item</span></a></li>
 					</ul>
 				</li>
 			</ul>

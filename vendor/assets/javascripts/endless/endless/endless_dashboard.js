@@ -25,7 +25,7 @@ $(function	()	{
 		},
 		plot;
 			
-	plot = $.plot($('#placeholder'), [init], options);
+  // plot = $.plot($('#placeholder'), [init], options);
 			
 	$("<div id='tooltip'></div>").css({
 		position: "absolute",
@@ -62,112 +62,112 @@ $(function	()	{
 		}
 	});
 			
-	var animate = function () {
-	   $('#placeholder').animate( {tabIndex: 0}, {
-		   duration: 3000,
-		   step: function ( now, fx ) {
-
-				 var r = $.map( init.data, function ( o ) {
-					  return [[ o[0], o[1] * fx.pos ]];
-				});
-
-				 plot.setData( [{ data: r }] );
-			 plot.draw();
-			}	
-		});
-	}
+  // var animate = function () {
+  //    $('#placeholder').animate( {tabIndex: 0}, {
+  //      duration: 3000,
+  //      step: function ( now, fx ) {
+  //
+  //        var r = $.map( init.data, function ( o ) {
+  //           return [[ o[0], o[1] * fx.pos ]];
+  //       });
+  //
+  //        plot.setData( [{ data: r }] );
+  //      plot.draw();
+  //     }
+  //   });
+  // }
 		
-	animate();
+  // animate();
 
 	//Morris Chart
-	var donutChart = Morris.Donut({
-	  element: 'donutChart',
-	  data: [
-		{label: "Download Sales", value: 1236},
-		{label: "In-Store Sales", value: 3091},
-		{label: "Mail-Order Sales", value: 2781}
-	  ],
-	  colors: ['#ffc545','#9ad268' ,'#fe402b']
-	});
-	
-	var lineChart = Morris.Line({
-		element: 'lineChart',
-		data: [
-			{ y: '2006', a: 30,  b: 20 },
-			{ y: '2007', a: 45,  b: 35 },
-			{ y: '2008', a: 60,  b: 60 },
-			{ y: '2009', a: 75,  b: 65 },
-			{ y: '2010', a: 50,  b: 70 },
-			{ y: '2011', a: 80,  b: 85 },
-			{ y: '2012', a: 100, b: 90 }
-		],
-		xkey: 'y',
-		ykeys: ['a', 'b'],
-		labels: ['Item A', 'Item B'],
-		lineColors: ['#7ee1ff', '#1bc8fc'],
-		gridTextColor : '#fff'
-	});
-	
-	var barChart = Morris.Bar({
-	  element: 'barChart',
-	  data: [
-		{ y: '2006', a: 100, b: 90 },
-		{ y: '2007', a: 75,  b: 65 },
-		{ y: '2008', a: 50,  b: 40 },
-		{ y: '2009', a: 75,  b: 65 },
-		{ y: '2010', a: 50,  b: 40 },
-		{ y: '2011', a: 75,  b: 65 },
-		{ y: '2012', a: 100, b: 90 }
-	  ],
-	  xkey: 'y',
-	  ykeys: ['a', 'b'],
-	  labels: ['Item C', 'Item D'],
-	  barColors: ['#acec74', '#80c641'],
-	  gridTextColor : '#fff'
-	});
+  // var donutChart = Morris.Donut({
+  //   element: 'donutChart',
+  //   data: [
+  //   {label: "Download Sales", value: 1236},
+  //   {label: "In-Store Sales", value: 3091},
+  //   {label: "Mail-Order Sales", value: 2781}
+  //   ],
+  //   colors: ['#ffc545','#9ad268' ,'#fe402b']
+  // });
+  //
+  // var lineChart = Morris.Line({
+  //   element: 'lineChart',
+  //   data: [
+  //     { y: '2006', a: 30,  b: 20 },
+  //     { y: '2007', a: 45,  b: 35 },
+  //     { y: '2008', a: 60,  b: 60 },
+  //     { y: '2009', a: 75,  b: 65 },
+  //     { y: '2010', a: 50,  b: 70 },
+  //     { y: '2011', a: 80,  b: 85 },
+  //     { y: '2012', a: 100, b: 90 }
+  //   ],
+  //   xkey: 'y',
+  //   ykeys: ['a', 'b'],
+  //   labels: ['Item A', 'Item B'],
+  //   lineColors: ['#7ee1ff', '#1bc8fc'],
+  //   gridTextColor : '#fff'
+  // });
+  //
+  // var barChart = Morris.Bar({
+  //   element: 'barChart',
+  //   data: [
+  //   { y: '2006', a: 100, b: 90 },
+  //   { y: '2007', a: 75,  b: 65 },
+  //   { y: '2008', a: 50,  b: 40 },
+  //   { y: '2009', a: 75,  b: 65 },
+  //   { y: '2010', a: 50,  b: 40 },
+  //   { y: '2011', a: 75,  b: 65 },
+  //   { y: '2012', a: 100, b: 90 }
+  //   ],
+  //   xkey: 'y',
+  //   ykeys: ['a', 'b'],
+  //   labels: ['Item C', 'Item D'],
+  //   barColors: ['#acec74', '#80c641'],
+  //   gridTextColor : '#fff'
+  // });
 
 	//Sparkline
-	$('#visits').sparkline([15,19,20,22,33,27,31,27,19,30,21,10,15,18,25,9], {
-		type: 'bar', 
-		barColor: '#fa4c38',	
-		height:'35px',
-		weight:'96px'
-	});
-	$('#balances').sparkline([220,160,189,156,201,220,104,242,221,111,164,242,183,165], {
-		type: 'bar', 
-		barColor: '#92cf5c',	
-		height:'35px',
-		weight:'96px'
-	});
-	
-	//Timeline color box
-	$('.timeline-img').colorbox({
-		rel:'group1',
-		width:"90%",
-		maxWidth:'800px'
-	});
-
-	//Resize graph when toggle side menu
-	$('.navbar-toggle').click(function()	{
-		setTimeout(function() {
-			donutChart.redraw();
-			lineChart.redraw();
-			barChart.redraw();			
-			
-			$.plot($('#placeholder'), [init], options);
-		},500);	
-	});
-	
-	$('.size-toggle').click(function()	{
-		//resize morris chart
-		setTimeout(function() {
-			donutChart.redraw();
-			lineChart.redraw();
-			barChart.redraw();	
-
-			$.plot($('#placeholder'), [init], options);			
-		},500);
-	});
+  // $('#visits').sparkline([15,19,20,22,33,27,31,27,19,30,21,10,15,18,25,9], {
+  //   type: 'bar',
+  //   barColor: '#fa4c38',
+  //   height:'35px',
+  //   weight:'96px'
+  // });
+  // $('#balances').sparkline([220,160,189,156,201,220,104,242,221,111,164,242,183,165], {
+  //   type: 'bar',
+  //   barColor: '#92cf5c',
+  //   height:'35px',
+  //   weight:'96px'
+  // });
+  //
+  // //Timeline color box
+  // $('.timeline-img').colorbox({
+  //   rel:'group1',
+  //   width:"90%",
+  //   maxWidth:'800px'
+  // });
+  //
+  // //Resize graph when toggle side menu
+  // $('.navbar-toggle').click(function()  {
+  //   setTimeout(function() {
+  //     donutChart.redraw();
+  //     lineChart.redraw();
+  //     barChart.redraw();
+  //
+  //     $.plot($('#placeholder'), [init], options);
+  //   },500);
+  // });
+  //
+  // $('.size-toggle').click(function()  {
+  //   //resize morris chart
+  //   setTimeout(function() {
+  //     donutChart.redraw();
+  //     lineChart.redraw();
+  //     barChart.redraw();
+  //
+  //     $.plot($('#placeholder'), [init], options);
+  //   },500);
+  // });
 
 	//Refresh statistic widget
 	$('.refresh-button').click(function() {
@@ -198,80 +198,80 @@ $(function	()	{
 		});
 
 		//resize morris chart
-		setTimeout(function() {
-			donutChart.redraw();
-			lineChart.redraw();
-			barChart.redraw();			
-			
-			$.plot($('#placeholder'), [init], options);
-		},500);
+    // setTimeout(function() {
+    //   donutChart.redraw();
+    //   lineChart.redraw();
+    //   barChart.redraw();
+    //
+    //   $.plot($('#placeholder'), [init], options);
+    // },500);
 	});
 	
 	$(window).load(function(e)	{
 	
 		//Number Animation
-		var currentUser = $('#userCount').text();
-		$({numberValue: 0}).animate({numberValue: currentUser}, {
-			duration: 2500,
-			easing: 'linear',
-			step: function() { 
-				$('#userCount').text(Math.ceil(this.numberValue)); 
-			}
-		});
-				
-		var currentServerload = $('#serverloadCount').text();
-		$({numberValue: 0}).animate({numberValue: currentServerload}, {
-			duration: 2500,
-			easing: 'linear',
-			step: function() { 
-				$('#serverloadCount').text(Math.ceil(this.numberValue)); 
-			}
-		});
-			
-		var currentOrder = $('#orderCount').text();
-		$({numberValue: 0}).animate({numberValue: currentOrder}, {
-			duration: 2500,
-			easing: 'linear',
-			step: function() { 
-				$('#orderCount').text(Math.ceil(this.numberValue)); 
-			}
-		});
-			
-		var currentVisitor = $('#visitorCount').text();
-		$({numberValue: 0}).animate({numberValue: currentVisitor}, {
-			duration: 2500,
-			easing: 'linear',
-			step: function() { 
-				$('#visitorCount').text(Math.ceil(this.numberValue)); 
-			}
-		});
-	
-		setInterval(function() {
-			var currentNumber = $('#userCount').text();
-			var randomNumber = Math.floor(Math.random()*20) + 1;
-			var newNumber = parseInt(currentNumber, 10) + parseInt(randomNumber, 10); 
-		
-			$({numberValue: currentNumber}).animate({numberValue: newNumber}, {
-				duration: 500,
-				easing: 'linear',
-				step: function() { 
-					$('#userCount').text(Math.ceil(this.numberValue)); 
-				}
-			});
-		}, 3000);
-			
-		setInterval(function() {
-			var currentNumber = $('#visitorCount').text();
-			var randomNumber = Math.floor(Math.random()*50) + 1;
-			var newNumber = parseInt(currentNumber, 10) + parseInt(randomNumber, 10); 
-		
-			$({numberValue: currentNumber}).animate({numberValue: newNumber}, {
-				duration: 500,
-				easing: 'linear',
-				step: function() { 
-					$('#visitorCount').text(Math.ceil(this.numberValue)); 
-				}
-			});
-		}, 5000);
+    // var currentUser = $('#userCount').text();
+    // $({numberValue: 0}).animate({numberValue: currentUser}, {
+    //   duration: 2500,
+    //   easing: 'linear',
+    //   step: function() {
+    //     $('#userCount').text(Math.ceil(this.numberValue));
+    //   }
+    // });
+    //
+    // var currentServerload = $('#serverloadCount').text();
+    // $({numberValue: 0}).animate({numberValue: currentServerload}, {
+    //   duration: 2500,
+    //   easing: 'linear',
+    //   step: function() {
+    //     $('#serverloadCount').text(Math.ceil(this.numberValue));
+    //   }
+    // });
+    //
+    // var currentOrder = $('#orderCount').text();
+    // $({numberValue: 0}).animate({numberValue: currentOrder}, {
+    //   duration: 2500,
+    //   easing: 'linear',
+    //   step: function() {
+    //     $('#orderCount').text(Math.ceil(this.numberValue));
+    //   }
+    // });
+    //
+    // var currentVisitor = $('#visitorCount').text();
+    // $({numberValue: 0}).animate({numberValue: currentVisitor}, {
+    //   duration: 2500,
+    //   easing: 'linear',
+    //   step: function() {
+    //     $('#visitorCount').text(Math.ceil(this.numberValue));
+    //   }
+    // });
+    //
+    // setInterval(function() {
+    //   var currentNumber = $('#userCount').text();
+    //   var randomNumber = Math.floor(Math.random()*20) + 1;
+    //   var newNumber = parseInt(currentNumber, 10) + parseInt(randomNumber, 10);
+    //
+    //   $({numberValue: currentNumber}).animate({numberValue: newNumber}, {
+    //     duration: 500,
+    //     easing: 'linear',
+    //     step: function() {
+    //       $('#userCount').text(Math.ceil(this.numberValue));
+    //     }
+    //   });
+    // }, 3000);
+    //
+    // setInterval(function() {
+    //   var currentNumber = $('#visitorCount').text();
+    //   var randomNumber = Math.floor(Math.random()*50) + 1;
+    //   var newNumber = parseInt(currentNumber, 10) + parseInt(randomNumber, 10);
+    //
+    //   $({numberValue: currentNumber}).animate({numberValue: newNumber}, {
+    //     duration: 500,
+    //     easing: 'linear',
+    //     step: function() {
+    //       $('#visitorCount').text(Math.ceil(this.numberValue));
+    //     }
+    //   });
+    // }, 5000);
 	});
 });

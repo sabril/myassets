@@ -36,4 +36,13 @@ class User
   # field :failed_attempts, type: Integer, default: 0 # Only if lock strategy is :failed_attempts
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
+  def name
+    full_name = email.split('@')[0]
+    if first_name.present? && last_name.present?
+      full_name = first_name + " " + last_name
+    elsif first_name.present? && !last_name.present?
+      full_name = first_name
+    end
+    return full_name
+  end
 end

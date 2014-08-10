@@ -15,5 +15,7 @@
 //= require endless/jquery.slimscroll.min
 //= require endless/modernizr.min
 //= require endless/jquery.cookie.min
+//= require endless/bootstrap-datepicker.min
 //= require endless/endless/endless_dashboard
+//= require endless/endless/endless_form
 //= require endless/endless/endless
