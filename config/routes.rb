@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "/dashboard" => "home#dashboard", as: :dashboard                                                                                                                                   
   devise_for :users
   devise_scope :user do
     get '/logout' => "devise/sessions#destroy"

@@ -77,3 +77,4 @@ gem "figaro"
 gem "unicorn"
 
 gem 'cancancan', '~> 1.9'
+gem "font-awesome-rails"
