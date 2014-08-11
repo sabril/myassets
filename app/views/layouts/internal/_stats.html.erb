@@ -5,12 +5,19 @@
 	</div><!-- /page-title -->
 
 	<ul class="page-stats">
-    	<li>
-    		<div class="value">
-    			<span>Current Assets Value</span>
-    			<h4><strong id="currentBalance"><%= to_price total_assets %></strong></h4>
-    		</div>
-    		<span id="balances" class="sparkline"></span>
-    	</li>
-    </ul><!-- /page-stats -->
+  	<li>
+  		<div class="value">
+  			<span>Total assets (gram)</span>
+  			<h4 id="currentVisitor"><%= current_user.items.sum(:quantity) %></h4>
+  		</div>
+		<span id="visits" class="sparkline"></span>
+  	</li>
+  	<li>
+  		<div class="value">
+  			<span>Current Assets Value</span>
+  			<h4><strong id="currentBalance"><%= to_price total_assets %></strong></h4>
+  		</div>
+  		<span id="balances" class="sparkline"></span>
+  	</li>
+  </ul><!-- /page-stats -->
 </div><!-- /main-header -->
