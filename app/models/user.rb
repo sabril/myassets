@@ -47,7 +47,7 @@ class User
     return full_name
   end
   
-  def total_assets_value
-    items.sum(:buy_value)
+  def total_assets_unit
+    items.sum(:quantity)
   end
 end

@@ -4,6 +4,6 @@ module ApplicationHelper
   end
   
   def total_assets
-    current_user.total_assets_value
+    current_user.total_assets_unit * current_logam_mulia_prices[0].to_i
   end
 end

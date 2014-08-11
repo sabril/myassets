@@ -13,7 +13,7 @@ class GoldPrice
     page = a.get(source)
     sell_price = page.search "#body-sub-cnt > div.column-2 > p:nth-child(3)"
     buy_price = page.search "#table-goldprice > tbody > tr:nth-child(12) > td:nth-child(3)"
-    time = Time.now
-    [sell_price.text.split(":")[4].gsub(/[^0-9]/, ''), buy_price.text.gsub(/[^0-9]/, ''), time]
+    update_time = (sell_price.text.split(":")[1] + ":" + sell_price.text.split(":")[2]).strip
+    [sell_price.text.split(":")[4].gsub(/[^0-9]/, ''), buy_price.text.gsub(/[^0-9]/, ''), update_time]
   end
 end
