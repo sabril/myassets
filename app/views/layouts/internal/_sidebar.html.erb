@@ -13,16 +13,16 @@
 		<div class="user-block clearfix">
       <%= image_tag "user.jpg", alt: "User Avatar" %>
 			<div class="detail">
-				<strong><%= current_user.name %></strong>
+				<strong><%= current_user.name.titleize %></strong>
 				<ul class="list-inline">
 					<li><a href="/profile">Profile</a></li>
-					<li><a href="/inbox" class="no-margin">Inbox</a></li>
+					<!-- <li><a href="/inbox" class="no-margin">Inbox</a></li> -->
 				</ul>
 			</div>
 		</div><!-- /user-block -->
 		<div class="main-menu">
 			<ul>
-				<li class="active">
+				<li class="<%= 'active' if controller_name == "home" %>">
 					<a href="/dashboard">
 						<span class="menu-icon">
 							<i class="fa fa-desktop fa-lg"></i> 
@@ -33,7 +33,7 @@
 						<span class="menu-hover"></span>
 					</a>
 				</li>
-				<li class="openable open">
+				<li class="openable open <%= 'active' if controller_name == "items" %>">
 					<a href="#">
 						<span class="menu-icon">
 							<i class="fa fa-file-text fa-lg"></i> 
@@ -44,15 +44,11 @@
 						<span class="menu-hover"></span>
 					</a>
 					<ul class="submenu">
-						<li><a href="/items"><span class="submenu-label">View Items</span></a></li>
-						<li><a href="/items/new"><span class="submenu-label">New Item</span></a></li>
+						<li class="<%= 'active' if action_name == "index" %>"><a href="/items"><span class="submenu-label">View Items</span></a></li>
+						<li class="<%= 'active' if action_name == "new" %>"><a href="/items/new"><span class="submenu-label">New Item</span></a></li>
 					</ul>
 				</li>
 			</ul>
-		
-      <!-- <div class="alert alert-info">
-        Welcome to Endless Admin. Do not forget to check all my pages.
-      </div> -->
 		</div><!-- /main-menu -->
 	</div><!-- /sidebar-inner -->
 </aside>

@@ -42,28 +42,13 @@
   	<div id="wrapper" class="preload">
       <%= render "layouts/internal/sidebar" %>
   		<div id="main-container">
-  			<div id="breadcrumb">
-  				<ul class="breadcrumb">
-  					 <li><i class="fa fa-home"></i><a href="/"> Home</a></li>
-  					 <li class="active">Dashboard</li>	 
-  				</ul>
-  			</div><!-- /breadcrumb-->
-        <%= yield %>
+        <%= render_breadcrumbs if current_user %>
+        <%= yield :stats %>
+        <div class="padding-md">
+          <%= yield %>
+        </div>
   		</div><!-- /main-container -->
-  		<!-- Footer
-  		================================================== -->
-  		<footer>
-  			<div class="row">
-  				<div class="col-sm-6">
-  					<span class="footer-brand">
-  						<strong class="text-danger">Endless</strong> Admin
-  					</span>
-  					<p class="no-margin">
-  						&copy; 2013 <strong>Endless Admin</strong>. ALL Rights Reserved. 
-  					</p>
-  				</div><!-- /.col -->
-  			</div><!-- /.row-->
-  		</footer>
+      <%= render "layouts/internal/footer" %>
   	</div><!-- /wrapper -->
   </body>
 </html>
