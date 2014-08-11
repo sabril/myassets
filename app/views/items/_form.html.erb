@@ -2,7 +2,7 @@
     <%= f.input :name %>
     <%= f.input :buy_value %>
     <%= f.input :buy_date, input_html: {class: "datepicker input-sm"} %>
-    <%= f.input :quantity %>
+    <%= f.input :quantity, as: :select, collection: Item.quantity_list %>
   <div class="form-group">
     <div class='col-sm-offset-3 col-sm-9'>
       <%= f.button :submit, :class => 'btn-primary' %>
