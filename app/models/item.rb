@@ -13,4 +13,8 @@ class Item
   rescue
     0
   end
+  
+  def current_value
+    quantity * GoldPrice.get_logam_mulia_price[0].to_i
+  end
 end
