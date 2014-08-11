@@ -20,6 +20,6 @@ class ApplicationController < ActionController::Base
   end
   
   def current_logam_mulia_prices
-    @current_logam_mulia_prices = GoldPrice.get_logam_mulia_price
+    @current_logam_mulia_prices ||= GoldPrice.get_logam_mulia_price
   end
 end
