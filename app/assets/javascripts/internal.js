@@ -19,3 +19,4 @@
 //= require endless/endless/endless_dashboard
 //= require endless/endless/endless_form
 //= require endless/endless/endless
+//= require accounting.min

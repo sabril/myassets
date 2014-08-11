@@ -25,6 +25,7 @@ class User
   
   field :first_name
   field :last_name
+  has_many :items, dependent: :destroy
 
   ## Confirmable
   # field :confirmation_token,   type: String
@@ -44,5 +45,9 @@ class User
       full_name = first_name
     end
     return full_name
+  end
+  
+  def total_assets_value
+    items.sum(:buy_value)
   end
 end

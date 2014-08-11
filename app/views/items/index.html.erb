@@ -5,10 +5,11 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:buy_value) %></th>
       <th><%= model_class.human_attribute_name(:buy_date) %></th>
+      <th><%= model_class.human_attribute_name(:quantity) %></th>
+      <th><%= model_class.human_attribute_name(:unit_value) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -16,10 +17,11 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= item.id %></td>
-          <td><%= item.name %></td>
-          <td><%= item.buy_value %></td>
-          <td><%= item.buy_date %></td>
+        <td><%= link_to item.name, item %></td>
+        <td><%= to_price item.buy_value %></td>
+        <td><%= item.buy_date %></td>
+        <td><%= item.quantity %></td>
+        <td><%= to_price item.unit_value %></td>
         <td><%=l item.created_at, format: :long %></td>
         <td>
           <%= link_to item_path(item), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>

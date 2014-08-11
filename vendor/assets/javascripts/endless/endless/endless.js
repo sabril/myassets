@@ -201,15 +201,15 @@ $(function	()	{
 		}
 	});
 			
-	var currentBalance = $('#currentBalance').text();
-	
-	$({numberValue: 0}).animate({numberValue: currentBalance}, {
-		duration: 2500,
-		easing: 'linear',
-		step: function() { 
-			$('#currentBalance').text(Math.ceil(this.numberValue)); 
-		}
-	});
+  // var currentBalance = $('#currentBalance').text();
+  //
+  //   $({numberValue: 0}).animate({numberValue: currentBalance}, {
+  //     duration: 1500,
+  //     easing: 'linear',
+  //     step: function() {
+  //       $('#currentBalance').text(accounting.formatMoney(this.numberValue, "Rp.", 2, ".", ","));
+  //     }
+  //   });
 	
 	//Refresh Widget
 	$('.refresh-widget').click(function() {
